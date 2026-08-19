@@ -16,7 +16,8 @@ mkdir -p reports
 echo "locale files: $(ls locales/*.json | wc -l)"
 
 set +e
-"$PYTHON" tools/check_locales.py | tee reports/locale-report.txt
+\\"$PYTHON" tools/check_locales.py | tee reports/locale-report.txt
+"$PYTHON" tools/check_locales.py "$@" | tee reports/locale-report.txt
 status=${PIPESTATUS[0]}
 set -e
 exit "$status"
